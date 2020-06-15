@@ -14,5 +14,16 @@ public class WeatherApiRestController {
         weatherRepository.deleteById(id);
         return "Deleted ";
     }
+    
+    	@PostMapping("/add")
+	public Weather addWeather(@RequestBody Weather theWeather) {
+		
+		theWeather.setId(0);
+		
+        weatherRepository.save(theWeather);
+		
+		return theWeather;
+	}
+
 
 }
